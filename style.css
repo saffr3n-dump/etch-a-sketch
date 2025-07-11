@@ -1,0 +1,28 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  border: 1px solid;
+  width: min(95vh, 95vw);
+  height: min(95vh, 95vw);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  border: 1px solid;
+  width: calc(100% / 16);
+  height: calc(100% / 16);
+}
