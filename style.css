@@ -9,14 +9,24 @@
 body {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 16px;
+}
+
+button {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 4px 16px;
+  border: 1px solid;
 }
 
 .container {
   border: 1px solid;
-  width: min(95vh, 95vw);
-  height: min(95vh, 95vw);
+  width: min(calc(100vw - 32px), calc(100vh - 76px));
+  height: min(calc(100vw - 32px), calc(100vh - 76px));
   display: flex;
   flex-wrap: wrap;
 }
