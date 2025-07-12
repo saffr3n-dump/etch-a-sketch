@@ -8,6 +8,7 @@
     for (let i = 0, n = gridSize * gridSize; i < n; i++) {
       const cell = document.createElement('div');
       cell.classList.add('cell');
+      cell.setAttribute('data-opacity', '0');
       cell.style.width = `calc(100% / ${gridSize})`;
       cell.style.height = `calc(100% / ${gridSize})`;
       container.appendChild(cell);
@@ -30,14 +31,16 @@
 
   container.addEventListener('mouseover', (e) => {
     if (e.target.className !== 'cell') return;
-    e.target.style.backgroundColor = randomRgb();
+    const opacity = Number(e.target.getAttribute('data-opacity'));
+    e.target.setAttribute('data-opacity', opacity + 1);
+    e.target.style.backgroundColor = randomRgb(opacity + 1);
   });
 
-  function randomRgb() {
+  function randomRgb(opacity) {
     const r = random256();
     const g = random256();
     const b = random256();
-    return `rgb(${r}, ${g}, ${b})`;
+    return `rgb(${r}, ${g}, ${b}, ${opacity / 10})`;
   }
 
   function random256() {
