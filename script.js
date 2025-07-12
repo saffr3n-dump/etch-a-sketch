@@ -30,6 +30,17 @@
 
   container.addEventListener('mouseover', (e) => {
     if (e.target.className !== 'cell') return;
-    e.target.style.backgroundColor = 'black';
+    e.target.style.backgroundColor = randomRgb();
   });
+
+  function randomRgb() {
+    const r = random256();
+    const g = random256();
+    const b = random256();
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  function random256() {
+    return Math.floor(Math.random() * 256);
+  }
 })();
